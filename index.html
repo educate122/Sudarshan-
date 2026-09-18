@@ -866,7 +866,7 @@ const TELEGRAM_LINK =
    COUNTDOWN SECONDS
 */
 
-let seconds = 60;
+let seconds = 7;
 
 
 /* HTML ELEMENTS */
@@ -895,7 +895,7 @@ function updateCountdown() {
     */
 
     const percentage =
-        (60 - seconds) / 60;
+        (7 - seconds) / 7;
 
     const degrees =
         percentage * 360;
@@ -956,17 +956,8 @@ joinButton.addEventListener(
            hai to alert show hoga.
         */
 
-        if (
-            TELEGRAM_LINK ===
-            "https://t.me/+tCUyPZ9xZNxjODU1"
-        ) {
-
+        if (TELEGRAM_LINK === "YOUR_TELEGRAM_LINK") {
             event.preventDefault();
-
-            alert(
-                "Please add your Telegram link in the HTML code."
-            );
-
         }
 
     }
