@@ -1,486 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Education | Free </title>
+<title>Gautam Jhaa | Stock Learners</title>
 
-    <meta name="description"
-          content="Market analysis and trading education. Join the Telegram community for market updates and educational content.">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+body {
+    min-height: 100vh;
 
-    <style>
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        html {
-            scroll-behavior: smooth;
-        }
+    padding: 25px 15px;
 
-        body {
-            min-height: 100vh;
-            background:
-                radial-gradient(circle at 50% 35%, rgba(0, 255, 170, 0.07), transparent 35%),
-                #020908;
-            color: #ffffff;
-            font-family: "Inter", sans-serif;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(120, 100, 255, 0.12),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(30, 160, 255, 0.12),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #f8f9ff 0%,
+            #eef4ff 100%
+        );
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    color: #172033;
 
-            padding: 30px 15px;
-        }
+    overflow-x: hidden;
+}
 
-        /* Main Container */
 
-        .page {
-            width: 100%;
-            max-width: 420px;
-        }
+/* =========================================
+   MAIN CARD
+========================================= */
 
-        .card {
-            position: relative;
+.main-card {
+    width: 100%;
+    max-width: 530px;
 
-            width: 100%;
+    padding: 40px 42px 28px;
 
-            padding: 26px 18px 24px;
+    background: rgba(255,255,255,0.94);
 
-            border: 2px solid #00d9a0;
-            border-radius: 36px;
+    border: 1px solid rgba(255,255,255,0.95);
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(0, 36, 27, 0.92),
-                    rgba(1, 17, 14, 0.96)
-                );
+    border-radius: 36px;
 
-            box-shadow:
-                0 0 15px rgba(0, 255, 174, 0.25),
-                0 0 45px rgba(0, 255, 174, 0.08),
-                inset 0 0 35px rgba(0, 255, 174, 0.025);
+    box-shadow:
+        0 30px 70px rgba(55,75,145,0.16),
+        0 10px 30px rgba(0,0,0,0.04);
 
-            overflow: hidden;
-        }
+    text-align: center;
 
-        /* Glow effect */
+    animation: cardAppear 0.7s ease;
+}
 
-        .card::before {
-            content: "";
-            position: absolute;
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.98);
+    }
 
-            width: 250px;
-            height: 250px;
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
-            top: -120px;
-            left: 50%;
 
-            transform: translateX(-50%);
+/* =========================================
+   LOGO
+========================================= */
 
-            background: #00d9a0;
-            filter: blur(120px);
+.logo-box {
+    width: 92px;
+    height: 92px;
 
-            opacity: 0.08;
+    margin: 0 auto 18px;
 
-            pointer-events: none;
-        }
+    background: #ffffff;
 
-        /* Badge */
+    border-radius: 28px;
 
-        .badge {
-            width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-            margin: 0 auto 20px;
+    overflow: hidden;
 
-            padding: 9px 18px;
+    box-shadow:
+        0 8px 30px rgba(50,70,150,0.10);
 
-            border-radius: 30px;
+    border: 1px solid #f1f3f8;
+}
 
-            border: 1px solid rgba(0, 230, 165, 0.35);
+.logo-box img {
+    width: 100%;
+    height: 100%;
 
-            background: rgba(0, 100, 70, 0.18);
+    object-fit: contain;
 
-            color: #00d99e;
+    padding: 7px;
 
-            font-size: 12px;
-            font-weight: 700;
+    display: block;
+}
 
-            letter-spacing: 0.1px;
 
-            box-shadow:
-                inset 0 0 15px rgba(0, 255, 174, 0.03),
-                0 0 15px rgba(0, 255, 174, 0.05);
-        }
+/* =========================================
+   TELEGRAM LABEL
+========================================= */
 
-        /* Profile */
+.telegram-label {
+    display: inline-flex;
 
-        .profile-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 18px;
-        }
+    align-items: center;
 
-        .profile-ring {
-            width: 130px;
-            height: 130px;
+    gap: 8px;
 
-            padding: 3px;
+    padding: 7px 14px;
 
-            border-radius: 50%;
+    margin-bottom: 16px;
 
-            background: linear-gradient(
-                135deg,
-                #00e6a0,
-                #00a987,
-                #00d9e8
-            );
+    border-radius: 30px;
 
-            box-shadow:
-                0 0 10px rgba(0, 255, 174, 0.7),
-                0 0 30px rgba(0, 255, 174, 0.25);
-        }
+    background: #eef6ff;
 
-        .profile {
-            width: 100%;
-            height: 100%;
+    border: 1px solid #d8eaff;
 
-            border-radius: 50%;
+    color: #397ce8;
 
-            object-fit: cover;
+    font-size: 13px;
 
-            display: block;
+    font-weight: 600;
+}
 
-            border: 3px solid #06231d;
-        }
+.telegram-dot {
+    width: 8px;
+    height: 8px;
 
-        /* Heading */
+    background: #3c91f4;
 
-        .title {
-            text-align: center;
+    border-radius: 50%;
 
-            font-size: 26px;
-            line-height: 1.25;
+    box-shadow:
+        0 0 0 4px rgba(60,145,244,0.10);
+}
 
-            font-weight: 800;
 
-            margin-bottom: 14px;
+/* =========================================
+   HEADING
+========================================= */
 
-            color: #d9dddf;
-        }
+.main-title {
+    font-size: 43px;
 
-        .title span {
-            display: block;
+    line-height: 1.08;
 
-            color: #00d9a0;
+    font-weight: 800;
 
-            margin-top: 2px;
-        }
+    letter-spacing: -1.6px;
 
-        /* Description */
+    color: #182235;
 
-        .description {
-            text-align: center;
+    margin-bottom: 18px;
+}
 
-            color: #9aa9a7;
+.gradient-title {
+    display: block;
 
-            font-size: 13px;
+    margin-top: 2px;
 
-            line-height: 1.65;
+    background:
+        linear-gradient(
+            90deg,
+            #2d79e8,
+            #5745dc
+        );
 
-            font-weight: 500;
+    -webkit-background-clip: text;
+    background-clip: text;
 
-            margin-bottom: 20px;
-        }
+    color: transparent;
+}
 
-        /* Stats */
 
-        .stats {
-            display: grid;
+/* =========================================
+   DESCRIPTION
+========================================= */
 
-            grid-template-columns: repeat(3, 1fr);
+.description {
+    max-width: 430px;
 
-            gap: 9px;
+    margin: 0 auto 30px;
 
-            margin-bottom: 14px;
-        }
+    color: #69768d;
 
-        .stat {
-            min-height: 66px;
+    font-size: 16px;
 
-            border-radius: 17px;
+    line-height: 1.55;
+}
 
-            border: 1px solid rgba(0, 205, 155, 0.20);
 
-            background: rgba(0, 35, 28, 0.55);
+/* =========================================
+   REDIRECT BOX
+========================================= */
 
-            display: flex;
+.redirect-box {
+    width: 100%;
 
-            flex-direction: column;
+    min-height: 220px;
 
-            align-items: center;
+    margin-bottom: 17px;
 
-            justify-content: center;
+    padding: 20px;
 
-            text-align: center;
+    border-radius: 25px;
 
-            transition: 0.25s ease;
-        }
+    border: 1px solid #dce8fb;
 
-        .stat:hover {
-            transform: translateY(-3px);
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(70,130,255,0.07),
+            transparent 45%
+        ),
+        #fbfdff;
 
-            border-color: rgba(0, 235, 175, 0.55);
+    display: flex;
 
-            box-shadow: 0 0 18px rgba(0, 255, 174, 0.08);
-        }
+    flex-direction: column;
 
-        .stat strong {
-            color: #00d99e;
+    justify-content: center;
 
-            font-size: 15px;
+    align-items: center;
 
-            font-weight: 800;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.9);
+}
 
-            margin-bottom: 4px;
-        }
 
-        .stat small {
-            color: #8d9b99;
+/* =========================================
+   REDIRECT HEADER
+========================================= */
 
-            font-size: 11px;
-        }
+.redirect-title {
+    display: flex;
 
-        /* Trading Categories */
+    align-items: center;
 
-        .categories {
-            display: grid;
+    gap: 7px;
 
-            grid-template-columns: 1fr 1fr;
+    color: #6d7990;
 
-            gap: 10px;
+    font-size: 12px;
 
-            margin-bottom: 24px;
-        }
+    font-weight: 700;
 
-        .category {
-            min-height: 55px;
+    letter-spacing: 0.3px;
 
-            display: flex;
+    margin-bottom: 12px;
+}
 
-            align-items: center;
+.telegram-small {
+    width: 19px;
+    height: 19px;
 
-            gap: 11px;
+    border-radius: 50%;
 
-            padding: 0 13px;
+    background: #29a9ea;
 
-            border-radius: 15px;
+    color: white;
 
-            border: 1px solid rgba(0, 205, 155, 0.20);
+    display: flex;
 
-            background: rgba(0, 35, 28, 0.50);
+    justify-content: center;
 
-            color: #d4d9d8;
+    align-items: center;
 
-            font-size: 12px;
+    font-size: 10px;
+}
 
-            font-weight: 700;
 
-            transition: 0.25s ease;
-        }
+/* =========================================
+   COUNTDOWN
+========================================= */
 
-        .category:hover {
-            transform: translateY(-3px);
+.countdown-circle {
+    width: 94px;
+    height: 94px;
 
-            border-color: #00d9a0;
+    position: relative;
 
-            background: rgba(0, 80, 60, 0.25);
+    display: flex;
 
-            box-shadow: 0 0 20px rgba(0, 255, 174, 0.08);
-        }
+    justify-content: center;
 
-        .category-icon {
-            font-size: 17px;
-        }
+    align-items: center;
 
-        /* Telegram Button */
+    margin-bottom: 16px;
+}
 
-        .telegram-btn {
-            position: relative;
+.countdown-circle::before {
+    content: "";
 
-            width: 100%;
+    position: absolute;
 
-            min-height: 57px;
+    inset: 0;
 
-            border-radius: 35px;
+    border-radius: 50%;
 
-            border: none;
+    background:
+        conic-gradient(
+            from -90deg,
+            #2da8ec 0deg,
+            #5660df var(--progress),
+            #e9eef7 var(--progress),
+            #e9eef7 360deg
+        );
 
-            cursor: pointer;
+    -webkit-mask:
+        radial-gradient(
+            farthest-side,
+            transparent calc(100% - 6px),
+            #000 0
+        );
 
-            text-decoration: none;
+    mask:
+        radial-gradient(
+            farthest-side,
+            transparent calc(100% - 6px),
+            #000 0
+        );
+}
 
-            display: flex;
+.count-number {
+    position: relative;
 
-            align-items: center;
+    z-index: 2;
 
-            justify-content: center;
+    font-size: 40px;
 
-            gap: 8px;
+    font-weight: 400;
 
-            background:
-                linear-gradient(
-                    100deg,
-                    #00d39b,
-                    #08bfc9
-                );
+    color: #8a94a5;
+}
 
-            color: #03100d;
 
-            font-size: 15px;
+/* =========================================
+   REDIRECT TEXT
+========================================= */
 
-            font-weight: 900;
+.redirecting-text {
+    font-size: 13px;
 
-            letter-spacing: 0.2px;
+    color: #526078;
 
-            box-shadow:
-                0 0 15px rgba(0, 230, 165, 0.35),
-                0 8px 25px rgba(0, 220, 170, 0.12);
+    font-weight: 600;
 
-            transition: all 0.25s ease;
+    margin-bottom: 7px;
+}
 
-            overflow: hidden;
-        }
+.wait-text {
+    font-size: 12px;
 
-        .telegram-btn::before {
-            content: "";
+    color: #a1abba;
+}
 
-            position: absolute;
 
-            top: 0;
-            left: -100%;
+/* =========================================
+   TELEGRAM BUTTON
+========================================= */
 
-            width: 70%;
-            height: 100%;
+.join-button {
+    width: 100%;
 
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255,255,255,0.35),
-                transparent
-            );
+    height: 56px;
 
-            transform: skewX(-20deg);
+    margin-bottom: 19px;
 
-            transition: 0.6s;
-        }
+    border: none;
 
-        .telegram-btn:hover::before {
-            left: 140%;
-        }
+    border-radius: 17px;
 
-        .telegram-btn:hover {
-            transform: translateY(-3px) scale(1.01);
+    background:
+        linear-gradient(
+            100deg,
+            #28a8e9,
+            #5658e8
+        );
 
-            box-shadow:
-                0 0 25px rgba(0, 230, 165, 0.55),
-                0 12px 30px rgba(0, 220, 170, 0.18);
-        }
+    color: #ffffff;
 
-        .telegram-icon {
-            font-size: 18px;
-        }
+    display: flex;
 
-        /* Bottom text */
+    align-items: center;
 
-        .footer-note {
-            text-align: center;
+    justify-content: center;
 
-            color: #53625f;
+    gap: 11px;
 
-            font-size: 9px;
+    text-decoration: none;
 
-            line-height: 1.5;
+    font-size: 15px;
 
-            margin-top: 14px;
-        }
+    font-weight: 800;
 
-        /* Mobile */
+    letter-spacing: 0.2px;
 
-        @media (max-width: 480px) {
+    cursor: pointer;
 
-            body {
-                padding: 15px 10px;
-            }
+    box-shadow:
+        0 13px 28px rgba(65,108,225,0.25);
 
-            .card {
-                padding: 24px 15px 21px;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
 
-                border-radius: 31px;
-            }
+.join-button:hover {
+    transform: translateY(-2px);
 
-            .profile-ring {
-                width: 120px;
-                height: 120px;
-            }
+    box-shadow:
+        0 17px 34px rgba(65,108,225,0.32);
+}
 
-            .title {
-                font-size: 24px;
-            }
+.join-button:active {
+    transform: translateY(0);
+}
 
-            .description {
-                font-size: 12px;
-            }
+.telegram-plane {
+    font-size: 21px;
 
-            .stat strong {
-                font-size: 14px;
-            }
+    transform: rotate(-5deg);
+}
 
-            .category {
-                font-size: 11px;
-            }
 
-            .telegram-btn {
-                min-height: 55px;
+/* =========================================
+   FEATURE BOXES
+========================================= */
 
-                font-size: 14px;
-            }
-        }
+.features {
+    display: grid;
 
-        /* Very small phones */
+    grid-template-columns:
+        repeat(3, 1fr);
 
-        @media (max-width: 350px) {
+    gap: 8px;
 
-            .stats {
-                gap: 6px;
-            }
+    margin-bottom: 19px;
+}
 
-            .stat {
-                min-height: 62px;
-            }
+.feature {
+    min-height: 60px;
 
-            .categories {
-                gap: 7px;
-            }
+    border-radius: 14px;
 
-            .category {
-                padding: 0 9px;
-                gap: 7px;
-            }
+    border: 1px solid #e5e9f1;
 
-        }
+    background:
+        rgba(255,255,255,0.75);
 
-    </style>
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+}
+
+.feature-icon {
+    width: 19px;
+    height: 19px;
+
+    border-radius: 50%;
+
+    background: #e8f8f2;
+
+    color: #20ae79;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.feature-text {
+    font-size: 9px;
+
+    color: #69758c;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    color: #9ca6b6;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+.footer strong {
+    color: #71809a;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 12px 9px;
+    }
+
+    .main-card {
+        max-width: 100%;
+
+        padding: 30px 20px 23px;
+
+        border-radius: 30px;
+    }
+
+    .logo-box {
+        width: 84px;
+        height: 84px;
+
+        border-radius: 25px;
+    }
+
+    .main-title {
+        font-size: 34px;
+
+        letter-spacing: -1.2px;
+    }
+
+    .description {
+        font-size: 14px;
+
+        margin-bottom: 25px;
+    }
+
+    .redirect-box {
+        min-height: 205px;
+    }
+
+    .join-button {
+        height: 54px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .main-card {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .main-title {
+        font-size: 29px;
+    }
+
+    .telegram-label {
+        font-size: 12px;
+    }
+
+    .features {
+        gap: 5px;
+    }
+}
+
+</style>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -499,163 +634,347 @@ src="https://www.facebook.com/tr?id=4711824222383599&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code --></head>
 
+
 <body>
 
-    <main class="page">
 
-        <section class="card">
-
-            <!-- SEBI BADGE -->
-            <div class="badge">
-               join  VIP CLUB
-            </div>
+<div class="main-card">
 
 
-            <!-- PROFILE IMAGE -->
-            <div class="profile-wrapper">
+    <!-- =====================================
+         LOGO
+    ====================================== -->
 
-                <div class="profile-ring">
+    <div class="logo-box">
 
-                    <!-- CHANGE THIS IMAGE URL -->
-                    <img
-                        class="profile"
-                        src="https://i.ibb.co/mPmv563/images.jpg"
-                        alt="Trader Profile"
-                    >
+        <!--
+        YAHAN APNI LOGO IMAGE KA URL DALO
+        Example:
+        https://yourwebsite.com/logo.png
+        -->
 
-                </div>
+        <img
+            src="https://i.ibb.co/mPmv563/images.jpg"
+            alt="Stock Learners Logo"
+        >
 
-            </div>
-
-
-            <!-- TITLE -->
-
-            <h1 class="title">
-                Trade With 
-                <span>SUDARSHAN</span>
-            </h1>
+    </div>
 
 
-            <!-- DESCRIPTION -->
+    <!-- =====================================
+         TELEGRAM LABEL
+    ====================================== -->
 
-            <p class="description">
-                Fast &amp; • Accurate Market Analysis •<br>
-               • BTC/USD • XAU/USD •  
-            </p>
+    <div class="telegram-label">
 
+        <span class="telegram-dot"></span>
 
-            <!-- STATS -->
+        Telegram Channel
 
-            <div class="stats">
-
-                <div class="stat">
-                    <strong>10K+</strong>
-                    <small>Members</small>
-                </div>
-
-                <div class="stat">
-                    <strong>SEBI</strong>
-                    <small>Registered</small>
-                </div>
-
-                <div class="stat">
-                    <strong>FREE</strong>
-                    <small>Join</small>
-                </div>
-
-            </div>
+    </div>
 
 
-            <!--  CATEGORIES -->
+    <!-- =====================================
+         MAIN HEADING
+    ====================================== -->
 
-            <div class="categories">
+    <h1 class="main-title">
 
-                <div class="category">
-                    <span class="category-icon">📈</span>
-                    <span>Free Calls</span>
-                </div>
+        GAUTAM JHAA
 
-                <div class="category">
-                    <span class="category-icon">🏢</span>
-                    <span>XAU/USD</span>
-                </div>
+        <span class="gradient-title">
+            (STOCK LEARNERS)
+        </span>
 
-                <div class="category">
-                    <span class="category-icon">📊</span>
-                    <span>BTC/USD</span>
-                </div>
-
-                <div class="category">
-                    <span class="category-icon">📉</span>
-                    <span>Swing Move's</span>
-                </div>
-
-            </div>
+    </h1>
 
 
-            <!-- TELEGRAM CTA -->
+    <!-- =====================================
+         DESCRIPTION
+    ====================================== -->
 
-            <a
-                class="telegram-btn"
-                href="https://t.me/+tCUyPZ9xZNxjODU1"
-                target="_blank"
-                rel="noopener noreferrer"
+    <p class="description">
+
+        Get instant updates, exclusive content
+        and the latest information directly
+        on Telegram.
+
+    </p>
+
+
+    <!-- =====================================
+         REDIRECT BOX
+    ====================================== -->
+
+    <div class="redirect-box">
+
+
+        <div class="redirect-title">
+
+            <span class="telegram-small">
+                ➤
+            </span>
+
+            SECURE REDIRECT
+
+        </div>
+
+
+        <!-- COUNTDOWN -->
+
+        <div
+            class="countdown-circle"
+            id="countdownCircle"
+            style="--progress: 0deg;"
+        >
+
+            <span
+                class="count-number"
+                id="countdown"
             >
+                7
+            </span>
 
-                <span class="telegram-icon">🚀</span>
-
-                JOIN FOR FREE
-
-            </a>
+        </div>
 
 
-            <!-- DISCLAIMER -->
+        <div class="redirecting-text">
 
-            <p class="footer-note">
-                Market-related content is for educational and informational
-                purposes only. Trading and investing involve market risk.
-                Please make independent decisions.
-            </p>
+            Redirecting to Telegram...
 
-        </section>
-
-    </main>
+        </div>
 
 
-    <!-- OPTIONAL TRACKING SCRIPT AREA -->
+        <div class="wait-text">
 
-    <script>
+            Please wait a moment
 
-        /*
-         * You can add Meta Pixel code here.
-         *
-         * Example:
-         *
-         * fbq('track', 'Lead');
-         *
-         * The Telegram button can also trigger a custom event.
-         */
+        </div>
 
-        const telegramButton =
-            document.querySelector(".telegram-btn");
 
-        telegramButton.addEventListener("click", function () {
+    </div>
+
+
+    <!-- =====================================
+         TELEGRAM BUTTON
+    ====================================== -->
+
+    <a
+        href="https://t.me/+tCUyPZ9xZNxjODU1"
+        class="join-button"
+        id="joinButton"
+    >
+
+        <span class="telegram-plane">
+            ➤
+        </span>
+
+        JOIN TELEGRAM
+
+    </a>
+
+
+    <!-- =====================================
+         FEATURES
+    ====================================== -->
+
+    <div class="features">
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ⚡
+            </div>
+
+            <div class="feature-text">
+                Fast Access
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ✓
+            </div>
+
+            <div class="feature-text">
+                Free to Join
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ↕
+            </div>
+
+            <div class="feature-text">
+                Instant Updates
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <div class="footer">
+
+        © 2026 • All Rights Reserved
+
+        <br>
+
+        Landing Page by
+        <strong>Voltax Ad Agency</strong>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+/* ==================================================
+   TELEGRAM SETTINGS
+================================================== */
+
+
+/*
+   APNA TELEGRAM LINK YAHAN DALO
+
+   Example:
+
+   const TELEGRAM_LINK =
+   "https://t.me/+XXXXXXXXXXXX";
+*/
+
+const TELEGRAM_LINK =
+    "https://t.me/+tCUyPZ9xZNxjODU1";
+
+
+/*
+   COUNTDOWN SECONDS
+*/
+
+let seconds = 7;
+
+
+/* HTML ELEMENTS */
+
+const countdown =
+    document.getElementById("countdown");
+
+const countdownCircle =
+    document.getElementById("countdownCircle");
+
+const joinButton =
+    document.getElementById("joinButton");
+
+
+/* ==================================================
+   UPDATE COUNTDOWN
+================================================== */
+
+function updateCountdown() {
+
+    countdown.innerText = seconds;
+
+
+    /*
+       Circle progress
+    */
+
+    const percentage =
+        (7 - seconds) / 7;
+
+    const degrees =
+        percentage * 360;
+
+
+    countdownCircle.style
+        .setProperty(
+            "--progress",
+            degrees + "deg"
+        );
+}
+
+
+/* Initial */
+
+updateCountdown();
+
+
+/* ==================================================
+   7 SECOND AUTO REDIRECT
+================================================== */
+
+const timer =
+    setInterval(function() {
+
+        seconds--;
+
+        updateCountdown();
+
+
+        if (seconds <= 0) {
+
+            clearInterval(timer);
+
 
             /*
-             * Add your Meta Pixel event here.
-             *
-             * Example:
-             *
-             * if (typeof fbq !== "undefined") {
-             *     fbq('track', 'Lead');
-             * }
-             */
+               AUTOMATIC TELEGRAM REDIRECT
+            */
 
-            console.log("Telegram CTA clicked");
+            window.location.href =
+                TELEGRAM_LINK;
 
-        });
+        }
 
-    </script>
+    }, 1000);
+
+
+/* ==================================================
+   JOIN BUTTON
+================================================== */
+
+joinButton.addEventListener(
+    "click",
+    function(event) {
+
+        /*
+           Agar Telegram link replace nahi kiya
+           hai to alert show hoga.
+        */
+
+        if (
+            TELEGRAM_LINK ===
+            "https://t.me/+tCUyPZ9xZNxjODU1"
+        ) {
+
+            event.preventDefault();
+
+            alert(
+                "Please add your Telegram link in the HTML code."
+            );
+
+        }
+
+    }
+);
+
+</script>
+
 
 </body>
 </html>
